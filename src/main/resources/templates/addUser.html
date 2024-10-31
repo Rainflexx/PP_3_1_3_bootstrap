@@ -7,14 +7,14 @@
 </head>
 <body>
 <h1>Add User</h1>
-<form th:action="@{/users/saveUser}" th:object="${user}" th:method="post">
+<form th:action="@{/admin/saveUser}" th:object="${user}" th:method="post">
   <div>
     <label for="name">FirstName:</label>
     <input type="text" id="name" th:field="*{username}" required>
   </div>
   <div>
-    <label for="surname">LastName:</label>
-    <input type="text" id="surname" th:field="*{password}" required>
+    <label for="password">Password:</label>
+    <input type="text" id="password" th:field="*{password}" required>
   </div>
   <div>
     <label for="email">email:</label>

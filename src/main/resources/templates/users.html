@@ -23,17 +23,20 @@
     <td th:text="${user.password}"></td>
     <td th:text="${user.email}"></td>
     <td>
-      <a th:href="@{/users/updateUser(id=${user.getId()})}">Update</a>
+      <a th:href="@{/admin/updateUser(id=${user.getId()})}">Update</a>
 
     </td>
     <td>
-      <form th:method="POST" th:action="@{/users/deleteUser(id=${user.getId()})}">
+      <form th:method="POST" th:action="@{/admin/deleteUser(id=${user.getId()})}">
         <input type="submit" value="Delete"/>
       </form>
     </td>
   </tr>
   </tbody>
 </table>
-<a th:href="@{/users/addUser}">Add User</a>
+<a th:href="@{/admin/addUser}">Add User</a>
+<form action="#" th:action="@{/logout}" method="post" style="display:inline;">
+  <button type="submit">Выйти</button>
+</form>
 </body>
 </html>

@@ -6,14 +6,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.models.User;
-import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
 import java.util.List;
+
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
     @Autowired
     public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -32,11 +33,11 @@ public class UserServiceImpl implements UserService{
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+
     @Override
     public User findById(Long id) {
-        User user =userRepository.findByIdWithRoles(id)
+        return userRepository.findByIdWithRoles(id)
                 .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + id));
-        return user;
     }
 
     @Override
@@ -50,6 +51,7 @@ public class UserServiceImpl implements UserService{
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
     @Override
     public List<User> getUsersWithRole() {
         return userRepository.findAllWithRoles();

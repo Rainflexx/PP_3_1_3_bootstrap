@@ -4,8 +4,10 @@
     <title>Spring Security Example</title>
 </head>
 <body>
-<h1>User, welcome spring boot security page!</h1>
+<h1 th:text="${username} +', welcome spring boot security page!'"></h1>
 
-
+<form action="#" th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit">Выйти</button>
+</form>
 </body>
 </html>
