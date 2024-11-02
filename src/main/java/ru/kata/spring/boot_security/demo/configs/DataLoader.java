@@ -50,6 +50,8 @@ public class DataLoader implements CommandLineRunner {
             if (userRole != null) {
                 admin.getRoles().add(userRole);
             }
+            admin.setLastname("Admin_lastname");
+            admin.setAge(99);
             userRepository.save(admin);
         }
         if (!userRepository.findByUsername("user").isPresent()) {
@@ -62,6 +64,8 @@ public class DataLoader implements CommandLineRunner {
             if (userRole != null) {
                 user.getRoles().add(userRole);
             }
+            user.setAge(99);
+            user.setLastname("Base_User_lastname");
             userRepository.save(user);
 
         }    }
